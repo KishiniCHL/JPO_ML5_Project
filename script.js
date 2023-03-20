@@ -8,6 +8,7 @@ let video;
 let canvas, ctx;
 const width = 480;
 const height = 360;
+let randomObject;
 
 async function make() {
   // get the video
@@ -42,33 +43,40 @@ function detect() {
 
     if(objects){
       draw();
-      // randObject();
-      // console.log(objects)
     }
     
     detect();
   });
 }
 
-function draw(){
+function draw() {
   // Clear part of the canvas
   ctx.fillStyle = "#000000"
   ctx.fillRect(0,0, width, height);
 
   ctx.drawImage(video, 0, 0);
+
   for (let i = 0; i < objects.length; i += 1) {
       
+    if (objects[i].label === randomObject) { // Check if object label matches randomObject
+      ctx.fillStyle = "green"; 
+      ctx.strokeStyle = "green"; 
+    } else {
+      ctx.fillStyle = "white"; 
+      ctx.strokeStyle = "white"; 
+    }
+
     ctx.font = "16px Arial";
-    ctx.fillStyle = "white";
     ctx.fillText(objects[i].label, objects[i].x + 4, objects[i].y + 16); 
 
     ctx.beginPath();
     ctx.rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
-    ctx.strokeStyle = "white";
     ctx.stroke();
     ctx.closePath();
   }
 }
+
+
 
 // Helper Functions
 async function getVideo(){
@@ -99,15 +107,9 @@ function createCanvas(w, h){
 listObjects = ['cellphone', 'cat', 'bottle', 'car', 'airplane', 'dog', 'backpack', 'umbrella', 'handbag', 'skateboard', 'fork', 'knife', 'spoon', 'banana', 'apple', 'chair', 'window', 'door', 'laptop', 'TV', 'mouse', 'book', 'keyboard']
 
 function randObject() {
-  // console.log("list", objectDetector)
-  // console.log("SALUT", objects)
-
   let randomIndex = Math.floor(Math.random() * listObjects.length);
-  let randomObject = listObjects[randomIndex]
+  randomObject = listObjects[randomIndex]
 
   let divRandObject = document.getElementById('random-object');
   divRandObject.innerText = randomObject;
 }
-
-// objects[i].label
-// if randomObject == objects[i].label {}
