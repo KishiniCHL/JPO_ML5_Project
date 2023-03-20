@@ -1,14 +1,5 @@
 console.log('ml5 version:', ml5.version, 'slay');
 
-// Copyright (c) 2019 ml5
-//
-// This software is released under the MIT License.
-// https://opensource.org/licenses/MIT
-
-/* ===
-ml5 Example
-Real time Object Detection using objectDetector
-=== */
 
 let objectDetector;
 let status;
@@ -28,6 +19,7 @@ async function make() {
   ctx = canvas.getContext('2d');
 }
 
+
 // when the dom is loaded, call make();
 window.addEventListener('DOMContentLoaded', function() {
   make();
@@ -35,6 +27,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 function startDetecting(){
   console.log('model ready')
+  console.log(objectDetector)
   detect();
 }
 
@@ -46,8 +39,11 @@ function detect() {
     }
     objects = results;
 
+
     if(objects){
       draw();
+      // randObject();
+      // console.log(objects)
     }
     
     detect();
@@ -100,9 +96,12 @@ function createCanvas(w, h){
 }
 
 // list of objects to choose from randomly
-listObjects = ['cellphone', 'cat', 'bottle', 'car', 'airplane', 'dog', 'backpack', 'umbrella', 'handbag', 'skateboard', 'fork', 'knife', 'spoon', 'banana', 'apple', 'chair', 'window', 'door', 'laptop', 'mouse', 'book', 'keyboard']
+listObjects = ['cellphone', 'cat', 'bottle', 'car', 'airplane', 'dog', 'backpack', 'umbrella', 'handbag', 'skateboard', 'fork', 'knife', 'spoon', 'banana', 'apple', 'chair', 'window', 'door', 'laptop', 'TV', 'mouse', 'book', 'keyboard']
 
 function randObject() {
+  // console.log("list", objectDetector)
+  // console.log("SALUT", objects)
+
   let randomIndex = Math.floor(Math.random() * listObjects.length);
   let randomObject = listObjects[randomIndex]
 
