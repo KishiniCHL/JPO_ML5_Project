@@ -100,8 +100,15 @@ function createCanvas(w, h){
 }
 
 // list of objects to choose from randomly
-listObjects = ['', '', '']
-let randomObject
+listObjects = ['cellphone', 'cat', 'bottle', 'car', 'airplane', 'dog', 'backpack', 'umbrella', 'handbag', 'skateboard', 'fork', 'knife', 'spoon', 'banana', 'apple', 'chair', 'window', 'door', 'laptop', 'mouse', 'book', 'keyboard']
 
-objects[i].label
+function randObject() {
+  let randomIndex = Math.floor(Math.random() * listObjects.length);
+  let randomObject = listObjects[randomIndex]
+
+  let divRandObject = document.getElementById('random-object');
+  divRandObject.innerText = randomObject;
+}
+
+// objects[i].label
 // if randomObject == objects[i].label {}
