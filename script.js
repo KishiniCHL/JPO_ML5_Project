@@ -63,12 +63,12 @@ function draw(){
   for (let i = 0; i < objects.length; i += 1) {
       
     ctx.font = "16px Arial";
-    ctx.fillStyle = "green";
+    ctx.fillStyle = "white";
     ctx.fillText(objects[i].label, objects[i].x + 4, objects[i].y + 16); 
 
     ctx.beginPath();
     ctx.rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
-    ctx.strokeStyle = "green";
+    ctx.strokeStyle = "white";
     ctx.stroke();
     ctx.closePath();
   }
@@ -98,3 +98,10 @@ function createCanvas(w, h){
   document.body.appendChild(canvas);
   return canvas;
 }
+
+// list of objects to choose from randomly
+listObjects = ['', '', '']
+let randomObject
+
+objects[i].label
+// if randomObject == objects[i].label {}
