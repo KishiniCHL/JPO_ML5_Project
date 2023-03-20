@@ -95,14 +95,102 @@ function createCanvas(w, h){
   return canvas;
 }
 
-// list of objects to choose from randomly
-listObjects = ['', '', '']
-let randomObject
+// // list of objects to choose from randomly
+// listObjects = ['', '', '']
+// let randomObject
 
-objects[i].label
-// if randomObject == objects[i].label {}
+// objects[i].label
+// // if randomObject == objects[i].label {}
 
+const listObjects = [
+  "person",
+  "bicycle",
+  "car",
+  "motorcycle",
+  "airplane",
+  "bus",
+  "train",
+  "truck",
+  "boat",
+  "traffic light",
+  "fire hydrant",
+  "stop sign",
+  "parking meter",
+  "bench",
+  "bird",
+  "cat",
+  "dog",
+  "horse",
+  "sheep",
+  "cow",
+  "elephant",
+  "bear",
+  "zebra",
+  "giraffe",
+  "backpack",
+  "umbrella",
+  "handbag",
+  "tie",
+  "suitcase",
+  "frisbee",
+  "skis",
+  "snowboard",
+  "sports ball",
+  "kite",
+  "baseball bat",
+  "baseball glove",
+  "skateboard",
+  "surfboard",
+  "tennis racket",
+  "bottle",
+  "wine glass",
+  "cup",
+  "fork",
+  "knife",
+  "spoon",
+  "bowl",
+  "banana",
+  "apple",
+  "sandwich",
+  "orange",
+  "broccoli",
+  "carrot",
+  "hot dog",
+  "pizza",
+  "donut",
+  "cake",
+  "chair",
+  "couch",
+  "potted plant",
+  "bed",
+  "mirror",
+  "dining table",
+  "window",
+  "desk",
+  "toilet",
+  "door",
+  "TV",
+  "laptop",
+  "mouse",
+  "remote",
+  "keyboard",
+  "cell phone",
+  "microwave",
+  "oven",
+  "toaster",
+  "sink",
+  "refrigerator",
+  "book",
+  "clock",
+  "vase"
+];
 
-function randomObject(){
+function randObject(){
+  console.log("list", objectDetector)
   console.log("SALUT", objects)
+  
+  const randomIndex = Math.floor(Math.random() * listObjects.length);
+  const randomObject = listObjects[randomIndex];
+  const randomObjectDiv = document.getElementById("random-object");
+  randomObjectDiv.innerHTML = randomObject;
 }
