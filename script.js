@@ -51,6 +51,7 @@ function detect() {
 
 let randObjectSpan = document.querySelector('span');
 let randObjectContainer = document.querySelector('#objectAleatoire');
+// let randObjectMessage = document.getElementById('pointMessage');
 
 function draw() {
   // Clear part of the canvas
@@ -65,8 +66,10 @@ function draw() {
       ctx.fillStyle = "green"; 
       ctx.strokeStyle = "green"; 
       score++;
-      randObjectSpan.innerText = 'Nouvel objet : '
-      randObject();
+      // randObjectMessage.innerText = 'Bien joué ! Tu as montré le bon objet !';
+      randObjectSpan.innerText = 'Voici le nouvel objet : ';
+      // setTimeout(randObject, 3000);
+      randObject()
     } else {
       ctx.fillStyle = "white"; 
       ctx.strokeStyle = "white"; 
@@ -81,7 +84,8 @@ function draw() {
     ctx.closePath();
   }
   
-  document.querySelector("#score").innerText = "Nombre de points : " + score;
+  let divScore = document.querySelector("#score");
+  divScore.innerText = "Nombre de points : " + score;
 }
 
 // Helper Functions
@@ -102,7 +106,8 @@ async function getVideo(){
 }
 
 function createCanvas(w, h){
-  const canvas = document.createElement("canvas"); 
+  const canvas = document.createElement("canvas");
+  canvas.classList.add('webcam') ;
   canvas.width  = w;
   canvas.height = h;
   document.body.appendChild(canvas);
@@ -125,6 +130,7 @@ function randObject() {
 // Reset points function
 function reset() {
   score = 0
+  // randObjectMessage.innerText = ''
   randObjectSpan.innerText = ''
   randObjectContainer.innerText = ''
 }
