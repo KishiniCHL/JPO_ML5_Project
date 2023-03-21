@@ -1,6 +1,5 @@
 console.log('ml5 version:', ml5.version, 'slay');
 
-
 let objectDetector;
 let status;
 let objects = [];
@@ -9,6 +8,8 @@ let canvas, ctx;
 const width = 480;
 const height = 360;
 let randomObject;
+let countdown = 0;
+let score = 0;
 
 async function make() {
   // get the video
@@ -40,7 +41,6 @@ function detect() {
     }
     objects = results;
 
-
     if(objects){
       draw();
     }
@@ -61,6 +61,8 @@ function draw() {
     if (objects[i].label === randomObject) { // Check if object label matches randomObject
       ctx.fillStyle = "green"; 
       ctx.strokeStyle = "green"; 
+      score++;
+      randObject();
     } else {
       ctx.fillStyle = "white"; 
       ctx.strokeStyle = "white"; 
@@ -74,9 +76,9 @@ function draw() {
     ctx.stroke();
     ctx.closePath();
   }
+  
+  document.querySelector("#score").innerText = "Nombre de points : " + score;
 }
-
-
 
 // Helper Functions
 async function getVideo(){
@@ -103,13 +105,14 @@ function createCanvas(w, h){
   return canvas;
 }
 
+
 // list of objects to choose from randomly
 listObjects = ['cellphone', 'cat', 'bottle', 'car', 'airplane', 'dog', 'backpack', 'umbrella', 'handbag', 'skateboard', 'fork', 'knife', 'spoon', 'banana', 'apple', 'chair', 'window', 'door', 'laptop', 'tv', 'mouse', 'book', 'keyboard']
 
 function randObject() {
-  let randomIndex = Math.floor(Math.random() * listObjects.length);
-  randomObject = listObjects[randomIndex]
+  let randomListObject = Math.floor(Math.random() * listObjects.length);
+  randomObject = listObjects[randomListObject]
 
-  let divRandObject = document.getElementById('random-object');
-  divRandObject.innerText = randomObject;
+  let randObjectContainer = document.querySelector('#objectAleatoire');
+  randObjectContainer.innerText = randomObject;
 }
