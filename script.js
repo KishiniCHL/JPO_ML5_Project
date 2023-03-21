@@ -49,6 +49,9 @@ function detect() {
   });
 }
 
+let randObjectSpan = document.querySelector('span');
+let randObjectContainer = document.querySelector('#objectAleatoire');
+
 function draw() {
   // Clear part of the canvas
   ctx.fillStyle = "#000000"
@@ -62,6 +65,7 @@ function draw() {
       ctx.fillStyle = "green"; 
       ctx.strokeStyle = "green"; 
       score++;
+      randObjectSpan.innerText = 'Nouvel objet : '
       randObject();
     } else {
       ctx.fillStyle = "white"; 
@@ -109,10 +113,18 @@ function createCanvas(w, h){
 // list of objects to choose from randomly
 listObjects = ['cell phone', 'cat', 'bottle', 'car', 'airplane', 'dog', 'backpack', 'umbrella', 'handbag', 'skateboard', 'fork', 'knife', 'spoon', 'banana', 'apple', 'chair', 'window', 'door', 'laptop', 'tv', 'remote', 'mouse', 'book', 'keyboard']
 
+
 function randObject() {
   let randomListObject = Math.floor(Math.random() * listObjects.length);
   randomObject = listObjects[randomListObject]
 
-  let randObjectContainer = document.querySelector('#objectAleatoire');
   randObjectContainer.innerText = randomObject;
+}
+
+
+// Reset points function
+function reset() {
+  score = 0
+  randObjectSpan.innerText = ''
+  randObjectContainer.innerText = ''
 }
