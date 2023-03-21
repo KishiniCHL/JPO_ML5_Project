@@ -28,29 +28,22 @@ button{
 }
 
 #score {
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
+
     font-weight: bold;
 }
 
 #btnReset {
     background-color: rgb(219, 64, 64);
-    position: absolute;
-    left: 3px;
-    bottom: 3px
+
 }
 
 .generate {
     background-color: rgb(82, 82, 243);
-    position: absolute;
-    right: 5px;
+
 }
 
 #blockGenerate {
-    position: absolute;
-    top: 50px;
-    right: 5px;
+
     color: rgb(82, 82, 243);
 }
 #objectAleatoire {
